@@ -38,7 +38,7 @@ st.title("ComSum AI Personal Assistant")
 
 # Setup memory for contextual conversation
 msgs = StreamlitChatMessageHistory()
-memory = ConversationBufferMemory(memory_key="chat_history", chat_memory=msgs, return_messages=True)
+#memory = ConversationBufferMemory(memory_key="chat_history", chat_memory=msgs, return_messages=True)
 
 # Get LLM chain
 chain = get_llm_chain()
@@ -63,10 +63,11 @@ if user_query := st.chat_input(placeholder="Ask me anything!"):
 
     with st.chat_message("assistant"):
         # Define callback handlers
+        # Need this for QA chain
         # retrieval_handler = PrintRetrievalHandler(st.container())
         stream_handler = StreamHandler(st.empty())
 
-        # LLM Chain
+        # LLM Chain (comment this out when using QA chain)
         response = chain.run(question=user_query)
         msgs.add_ai_message(response)
         st.write(response)

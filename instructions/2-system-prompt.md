@@ -25,3 +25,6 @@ Finish the build_welcome_message function to return one of the supplied mesages 
 ### Super Bonus
 
 Get the LLM to generate the first message when the app first load. 
+
+## Next Steps
+Go to 3.

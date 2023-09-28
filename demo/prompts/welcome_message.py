@@ -1,3 +1,4 @@
+# TODO: Add more welcome messages
 messages = ["Hello there! I'm ComSum AI, your AI personal assistant",
 "Hey, how can I help you today?",
 ]
@@ -5,3 +6,4 @@ messages = ["Hello there! I'm ComSum AI, your AI personal assistant",
 def build_welcome_message() -> str:
     # TODO: Return a randomaised welcome_message
     return messages[1]
+

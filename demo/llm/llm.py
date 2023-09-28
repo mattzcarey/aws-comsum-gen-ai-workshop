@@ -32,7 +32,7 @@ def get_qa_chain(uploaded_files, memory):
 
     # ConversationalRetrievalChain
     qa_chain = ConversationalRetrievalChain.from_llm(
-        llm, retriever=retriever, memory=memory, verbose=True
+        llm, retriever=retriever, memory=memory, verbose=True,
     )
 
     return qa_chain
