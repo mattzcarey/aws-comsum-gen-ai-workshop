@@ -56,62 +56,9 @@ Now, every time you are in your project directory your virtualenv will be activa
 poetry install --no-root
 ```
 
-## Formatting and static analysis
+## Streamlit App
 
-### Code formatting with `black` (Optional)
-
-To check code formatting, run `black` with:
-
-```bash
-black . --check
-```
-
-or
-
-```bash
-make black
-```
-
-You can also [integrate it to your IDE](https://black.readthedocs.io/en/stable/integrations/editors.html) to reformat
-your code each time you save a file.
-
-### Static analysis with `ruff` (Optional)
-
-To run static analysis, run `ruff` with:
-
-```bash
-ruff check src tests
-```
-
-or
-
-```bash
-make ruff
-```
-
-To run static analysis and to apply auto-fixes, run `ruff` with:
-
-```bash
-make fix-ruff
-```
-
-### Type checking with `mypy`
-
-To type check your code, run `mypy` with:
-
-```bash
-mypy src --explicit-package-bases --namespace-packages
-```
-
-or
-
-```bash
-make mypy
-```
-
-## Streamlit
-
-The project includes a Streamlit app.
+The project includes a Streamlit app in ./demo/main.py.
 
 This is where you will build your personal assistant.
 

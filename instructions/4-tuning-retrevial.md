@@ -10,6 +10,10 @@ Note the difference in outputs. What is happening?
 
 You can also modify the splitter for your particular document format. Super interesting and can get much better retrieval results. See this doc for more info on splitters [here](https://python.langchain.com/docs/use_cases/question_answering/how_to/document-context-aware-QA)
 
+## Retrieval Search Type
+
+We can use different retrieval search models. Look at where we create the retriever in demo/llm/retrieval.py on line 34. You can specify the search_type here. Either "similarity", "mmr", or "similarity_score_threshold".
+
 ## Embeddings Models
 
 Up to now we have been using OpenAI embeddings. You can find a good leaderboard on embeddings [here](https://huggingface.co/spaces/mteb/leaderboard).

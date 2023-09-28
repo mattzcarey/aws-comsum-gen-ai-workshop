@@ -4,15 +4,15 @@ The system prompt is what is sent to the large language model (LLM) before the u
 
 Things like language choice, format and writing style should be defined here.
 
-## a. Speak like a pirate
+## Speak like a pirate
 
 In `demo/prompts/system_prompt` you will find the system prompt.
 
-Modify the prompt so that your chatbot returns text in the style of a pirate.
+Modify the template (prompt) on line 3 so that your chatbot returns text in the style of a pirate.
 
 Now try get the model to impersonate William Shakespeare.
 
-## b. Randomise the welcome message
+## Randomise the welcome message
 
 The `demo/prompts/welcome_message` defines the welcome message.
 

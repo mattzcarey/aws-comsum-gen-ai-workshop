@@ -16,7 +16,7 @@ Go to the `system prompt` and add the following to the end of the prompt before 
 
 ### Bonus task
 
-Try to add more facts to the prompt. Maybe copy and paste a whole article. What happens to the answers from the chatbot? Do you get any errors?
+Try to add more facts to the prompt. Maybe copy and paste a whole article. What happens to the answers from the chatbot? Do you get any errors? Keep adding more words until things get weird.
 
 ## RAG
 
@@ -38,7 +38,7 @@ Read about RAG from the link above and try to understand what each of the pieces
 
 ### Document Retrieval
 
-Now we need to define a Conversation Retrieval Chain in Langchain. This will allow us to perform RAG with alot of the processes setup out of the box by the Langchain Class.
+Now we need to define a [Conversation Retrieval Chain](https://python.langchain.com/docs/use_cases/question_answering/how_to/chat_vector_db) in Langchain. This will allow us to perform RAG with alot of the processes setup out of the box by the Langchain Class.
 
 Uncomment main.py line 46 and comment out the old basic chain line 44.
 
@@ -46,9 +46,9 @@ We need to give the chain some memory to store internal chain responses so uncom
 
 ### Use QA Chain
 
-Uncomment line 67 to use the PrintRetrievalHandler callback handler. Langchain callbacks are a handy way to do things while the chain is running but are beyond the scope of this workshop.
+Uncomment line 67 in main.py to use the PrintRetrievalHandler callback handler. Langchain callbacks are a handy way to do things while the chain is running but are beyond the scope of this workshop.
 
-Comment main.py lines 71-73 and uncomment line 74 to call the QA chain.
+Comment out main.py lines 71-73 and uncomment line 74 to call the QA chain.
 
 ## Try it out
 
@@ -62,7 +62,7 @@ You may need to comment out line 61 in main.py to avoid some weird memory issues
 
 Modify the retriever.py file to allow to upload CSV or Text files. Or go crazy and use a web loader to scrape a webpage. Check out the loaders you can use [here](https://python.langchain.com/docs/modules/data_connection/document_loaders/).
 
-Then modify the main.py file to allow the user to select that file type in the doc uploader.
+Then modify line 33 in the main.py file to allow the user to select that file type in the doc uploader.
 
 ### Super Super Bonus
 

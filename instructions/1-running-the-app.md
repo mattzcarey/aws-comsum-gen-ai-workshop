@@ -24,12 +24,6 @@ To run the Streamlit app, run the following command from the root of the project
 PYTHONPATH=. streamlit run demo/main.py
 ```
 
-or
-
-```bash
-make start-streamlit-app
-```
-
 ## Use the app
 
 If all has gone well you will now be able to navigate to `http://localhost:8501` and see your very own chatbot.
