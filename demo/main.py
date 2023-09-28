@@ -10,11 +10,14 @@ Don't forget to set .env variables before running the app.
 """
 
 import streamlit as st
+from langchain.memory import ConversationBufferMemory
+from langchain.memory.chat_message_histories import StreamlitChatMessageHistory
+from langchain.schema import AIMessage, SystemMessage
 
 from demo.constants.paths import ROOT_FOLDER
-from demo.llm.llm import llm
-from demo.prompts.system_prompt import system_prompt
-from demo.prompts.welcome_message import welcome_message
+from demo.llm.handlers import PrintRetrievalHandler, StreamHandler
+from demo.llm.llm import get_llm_chain, get_qa_chain
+from demo.prompts.welcome_message import build_welcome_message
 
 st.set_page_config(
     "GenAI Workshop",
@@ -25,39 +28,49 @@ st.set_page_config(
 
 st.title("ComSum AI Personal Assistant")
 
-# Side bar
-# with st.sidebar:
+# Uncomment to upload files
+# uploaded_files = st.sidebar.file_uploader(
+#     label="Upload PDF files", type=["pdf"], accept_multiple_files=True
+# )
+# if not uploaded_files:
+#     st.info("Please upload PDF documents to continue.")
+#     st.stop()
 
-# Initialize chat history on app start
-if "messages" not in st.session_state:
-    st.session_state["messages"] = [
-        system_prompt,
-        welcome_message,
-    ]
+# Setup memory for contextual conversation
+msgs = StreamlitChatMessageHistory()
+memory = ConversationBufferMemory(memory_key="chat_history", chat_memory=msgs, return_messages=True)
 
-# Display the welcome message
-for msg in st.session_state.messages:
-    if msg["role"] == "system":
-        st.markdown(f"System Prompt: *{msg['content']}*")
-        continue
-    st.chat_message(msg["role"]).write(msg["content"])
+# Get LLM chain
+chain = get_llm_chain()
+# Use the below chain instead for QA
+# chain = get_qa_chain(uploaded_files, memory)
 
-# Show a chat text box
-with st.spinner("Thinking..."):
-    if prompt := st.chat_input():
-        st.session_state.messages.append({"role": "user", "content": prompt})
-        st.chat_message("user").write(prompt)
-        msg = ""
+# Clear History
+if len(msgs.messages) == 0 or st.sidebar.button("Clear message history"):
+    msgs.clear()
+    #Set welcome message..
+    msgs.add_ai_message(build_welcome_message())
 
-        try:
-            response = llm(prompt)
-            print(response)
-            msg = response
+# Custom avatars
+avatars = {"human": "user", "ai": "assistant", "system": "system"}
+for msg in msgs.messages:
+    st.chat_message(avatars[msg.type]).write(msg.content)
 
-        except Exception as e:
-            st.error(e)
-            st.stop()
-        st.empty()
+# Query LLM
+if user_query := st.chat_input(placeholder="Ask me anything!"):
+    msgs.add_user_message(user_query)
+    st.chat_message("user").write(user_query)
 
-    st.session_state.messages.append(msg)
-    st.chat_message("assistant").write(msg["content"])
+    with st.chat_message("assistant"):
+        # Define callback handlers
+        # retrieval_handler = PrintRetrievalHandler(st.container())
+        stream_handler = StreamHandler(st.empty())
+
+        # LLM Chain
+        response = chain.run(question=user_query)
+        msgs.add_ai_message(response)
+        st.write(response)
+
+
+        # Uncomment to use QA chain
+        # response = chain.run(user_query, callbacks=[retrieval_handler, stream_handler])

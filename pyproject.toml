@@ -6,6 +6,12 @@ authors = ["Matt Carey <mattc@aleios.com>"]
 
 [tool.poetry.dependencies]
 python = "3.11.4"
+langchain = "^0.0.304"
+pydantic-settings = "^2.0.3"
+openai = "^0.28.1"
+pypdf = "^3.16.2"
+tiktoken = "^0.5.1"
+chromadb = "^0.4.13"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22"

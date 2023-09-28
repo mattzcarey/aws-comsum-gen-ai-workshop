@@ -19,6 +19,7 @@ class Settings(BaseSettings):
         env_file = ROOT_FOLDER / "demo" / ".env"
 
     model: str = "gpt-4"
+    temperature: float = 0
     openai_api_key: SecretStr
     huggingfacehub_api_token: SecretStr
     custom_hf_endpoint_url: str

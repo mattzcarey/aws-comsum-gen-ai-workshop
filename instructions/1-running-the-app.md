@@ -6,6 +6,16 @@ The `demo` folder contains all the code for the project.
 
 That makes it perfect for building our personal assistant.
 
+## Set up env variables
+
+Copy the .env_example file to .env
+
+Replace the OpenAI API key with your own.
+
+If you don't have one you can get it [here](https://platform.openai.com/).
+
+Leave the other variables as is for the moment.
+
 ## Running the Streamlit app
 
 To run the Streamlit app, run the following command from the root of the project:
@@ -26,7 +36,6 @@ If all has gone well you will now be able to navigate to `http://localhost:8501`
 
 Try and ask it some questions.
 
-Is it connected to the internet? 
+Is it connected to the internet?
 
 How up to date is it's knowledge?
-
