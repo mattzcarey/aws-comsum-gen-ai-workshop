@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ROOT_FOLDER / "demo" / ".env"
 
-    model: str = "gpt-4"
+    model: str = "gpt-3.5-turbo" # if you have access to GPT4, you can use "gpt-4"
     temperature: float = 0
     openai_api_key: SecretStr
     huggingfacehub_api_token: SecretStr

@@ -21,7 +21,6 @@ from demo.prompts.welcome_message import build_welcome_message
 
 st.set_page_config(
     "GenAI Workshop",
-    layout="wide",
     initial_sidebar_state="expanded",
     page_icon=str(ROOT_FOLDER / "demo/logo.png"),
 )
