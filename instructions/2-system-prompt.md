@@ -4,10 +4,6 @@ The system prompt is what is sent to the large language model (LLM) before the u
 
 Things like language choice, format and writing style should be defined here.
 
-### Bonus task
-
-Do a little google about recent advancements in system prompts. DeepMind released a study this month where they found huge improvements by prefixing prompts with one unlikely sentence. What was it?
-
 ## a. Speak like a pirate
 
 In `demo/prompts/system_prompt` you will find the system prompt.
@@ -18,13 +14,16 @@ Now try get the model to impersonate William Shakespeare.
 
 ## b. Randomise the welcome message
 
-The `demo/prompts/welcome_message` defines the welcome message. This makes a nice UX and and also helps define the writing style of the model.
+The `demo/prompts/welcome_message` defines the welcome message.
 
-Finish the build_welcome_message function to return one of the supplied mesages at random. 
+Finish the build_welcome_message function to return one of the supplied messages at random.
 
-### Super Bonus
+Also write some of your own messages. Bear in mind they might influence style of the LLM's responses in future.
 
-Get the LLM to generate the first message when the app first load. 
+### Bonus task
+
+Do a little google about recent advancements in system prompts. DeepMind released a study this month where they found huge improvements by prefixing prompts with one unlikely sentence. What was it? Can you add it to your system prompt?
 
 ## Next Steps
+
 Go to 3.

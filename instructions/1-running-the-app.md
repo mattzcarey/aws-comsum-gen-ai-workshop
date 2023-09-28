@@ -39,3 +39,7 @@ Try and ask it some questions.
 Is it connected to the internet?
 
 How up to date is it's knowledge?
+
+## Next Steps
+
+In these instructions, `Bonus` section are fun little challenges. `Super Bonus` sections are much more challenging and will require some googling. You can skip them if you like and come back later.

@@ -26,7 +26,7 @@ st.set_page_config(
     page_icon=str(ROOT_FOLDER / "demo/logo.png"),
 )
 
-st.title("ComSum AI Personal Assistant")
+st.title("AI Personal Assistant Workshop 🤖")
 
 # Uncomment to upload files
 # uploaded_files = st.sidebar.file_uploader(
